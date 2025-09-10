@@ -5,8 +5,8 @@ import Header from "../common/Header";
 
 const IndicesSection = () => {
   return (
-    <section className="bg-white rounded-2xl p-2 pt-8">
-      <Header title="Indices" />
+    <section className="bg-white  p-2 mt-8">
+      <Header title="Indices" icon={false} />
 
       <div className="px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
