@@ -44,12 +44,12 @@ const tabConfig: {
   { key: "most", label: "Most Traded", icon: <Activity /> },
 ];
 
-const StocksSection: React.FC = () => {
+const StocksSection= () => {
   const [activeTab, setActiveTab] = useState<StockCategory>("gainers");
   const data = useMemo(() => filterStocks(activeTab), [activeTab]);
 
   return (
-    <section className="bg-white w-full rounded-2xl p-2 pt-8 font-family-open-sauce">
+    <section className="bg-white w-full  font-family-open-sauce">
       <Header title="Stocks" />
       <div className="flex gap-4 px-6 mb-6">
         {tabConfig.map((t) => (
