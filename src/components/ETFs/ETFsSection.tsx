@@ -5,7 +5,7 @@ import Header from "../common/Header";
 
 const ETFsSection = () => {
   return (
-    <section className="bg-white rounded-2xl p-2 pt-8">
+    <section className="bg-white  p-2 mt-8">
       <Header title="ETFs" />
 
       <div className="px-6">
