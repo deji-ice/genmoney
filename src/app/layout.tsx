@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` font-open-sauce antialiased`}
+        className={` font-family-open-sauce antialiased`}
       >
         <Navbar />
         <main className="pt-20">{children}</main>
