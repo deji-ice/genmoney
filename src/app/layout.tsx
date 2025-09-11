@@ -29,7 +29,7 @@ export default function RootLayout({
         className={` font-open-sauce antialiased`}
       >
         <Navbar />
-        {children}
+        <main className="pt-20">{children}</main>
       </body>
     </html>
   );

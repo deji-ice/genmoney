@@ -5,7 +5,7 @@ import { Bell } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <nav className="w-full flex items-center justify-between font-open-sauce px-20 py-5 border-b border-b-gray-300">
+    <nav className="w-full fixed bg-white flex items-center justify-between font-open-sauce px-20 py-5 border-b border-b-gray-300">
       <div className="flex items-center justify-between gap-10">
         <Image
           src="https://res.cloudinary.com/dhvwthnzq/image/upload/v1757449188/genmoney/GenLogo_h7nicj.svg"
