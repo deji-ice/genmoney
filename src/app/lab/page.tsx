@@ -7,12 +7,14 @@ import Statistics from "@/components/Statistics";
 import StockChart from "@/components/stocks/StockChart";
 import TradingOrder from "@/components/TradingOrder";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const LabPage = () => {
   return (
     <main className="px-4 py-4 lg:px-20 lg:py-10 flex flex-col gap-6 ">
-      <span
+      <Link
+        href="/"
         aria-label="back button"
         role="button"
         className="flex gap-2.5 items-center cursor-pointer"
@@ -25,7 +27,7 @@ const LabPage = () => {
           width={18}
         />
         <h5 className="text-[#090A0B] font-medium text-[20px]">Back</h5>
-      </span>
+      </Link>
       <div className="  flex flex-col lg:flex-row gap-8">
         <section className="flex-3 flex flex-col space-y-10.5">
           <StockChart />

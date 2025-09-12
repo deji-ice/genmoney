@@ -17,6 +17,8 @@ const CategoryCard = ({ category }: CategoryProps) => {
         className="rounded-xl h-[111px] w-[191px]"
         src={category.image}
         alt=""
+        width={191} 
+        height={111}
       />
       <h3 className="text-sm  text-[#090A0B] font-semibold">{category.title}</h3>
       <p className="text-[#60707A] text-xs">{category.description}</p>
