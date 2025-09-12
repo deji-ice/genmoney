@@ -4,7 +4,7 @@ import ETFsSection from "@/components/ETFs/ETFsSection";
 import IndicesSection from "@/components/indices/IndicesSection";
 import NewsSection from "@/components/news/NewsSection";
 import StocksSection from "@/components/stocks/StocksSection";
-import Image from "next/image";
+
 
 export default function Home() {
   return (

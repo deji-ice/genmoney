@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { Stock, StockCategory, stocks } from "../../data/stocks";
 import { Activity, TrendingDown, TrendingUp } from "lucide-react";
 import StockRow from "./StockRow";
@@ -36,7 +36,7 @@ const tabConfig: {
 
 const StocksSection = () => {
   const [activeTab, setActiveTab] = useState<StockCategory>("gainers");
-  const [stockData, setStockData] = useState<Stock[]>(stocks);
+  const [stockData] = useState<Stock[]>(stocks);
 
   return (
     <section className="bg-white w-full  font-family-open-sauce">

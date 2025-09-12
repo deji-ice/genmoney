@@ -1,7 +1,7 @@
 import React from "react";
 import { ClubPost } from "./mockData";
 import Image from "next/image";
-import { Heart, MessageCircleIcon, Share, TrendingUp } from "lucide-react";
+import { Heart, MessageCircleIcon, TrendingUp } from "lucide-react";
 import { ShareIcon, VerifiedIcon } from "@/assets/icons";
 
 interface ClubCardProps {

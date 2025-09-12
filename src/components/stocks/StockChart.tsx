@@ -1,5 +1,4 @@
 "use client";
-import { BellRing, CirclePlus } from "lucide-react";
 import React, { useState } from "react";
 import { ResponsiveContainer, Tooltip, AreaChart, Area } from "recharts";
 import PercentageChange from "../common/PercentChange";
@@ -172,7 +171,7 @@ const StockChart = () => {
       {/* Bottom Stats */}
       <div className="grid grid-cols-2 gap-8 ">
         <div className="border border-[#E9EAEB] rounded-[16px] py-3 px-4">
-          <p className="text-[#60707A] text-xs mb-1">Today's Range</p>
+          <p className="text-[#60707A] text-xs mb-1">Today&apos;s Range</p>
           <p className="text-sm font-semibold text-[#090A0B]">
             ${stockData.todayRange.low} - ${stockData.todayRange.high}
           </p>
