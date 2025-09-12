@@ -1,5 +1,7 @@
 import CompanyProfile from "@/components/CompanyProfile";
 import Holdings from "@/components/Holdings";
+import NewsSection from "@/components/news/NewsSection";
+import RelatedStocks from "@/components/RelatedStocks";
 import Statistics from "@/components/Statistics";
 import StockChart from "@/components/stocks/StockChart";
 import TradingOrder from "@/components/TradingOrder";
@@ -13,8 +15,10 @@ const LabPage = () => {
         <Holdings />
         <CompanyProfile />
         <Statistics />
+        <RelatedStocks />
+        <NewsSection columns={2} maxItems={4}  separator={true}/>
       </section>
-      <section className="flex-2 flex flex-col">
+      <section className="flex-2 flex flex-col space-y-8">
         <TradingOrder />
       </section>
     </div>
@@ -22,4 +26,3 @@ const LabPage = () => {
 };
 
 export default LabPage;
-``;
