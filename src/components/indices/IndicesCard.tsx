@@ -5,11 +5,14 @@ import Image from "next/image";
 
 interface IndicesCardProps {
   index: Index;
+  className?: string;
 }
 
-const IndicesCard = ({ index }: IndicesCardProps) => {
+const IndicesCard = ({ index, className }: IndicesCardProps) => {
   return (
-    <div className="flex flex-col items-center text-center gap-2 rounded-2xl font-family-open-sauce py-3 px-[17px] h-[156px] border border-[#E8EBED] hover:border-gray-200 transition-colors">
+    <div
+      className={`flex flex-col items-center text-center gap-2 rounded-2xl font-family-open-sauce py-3 px-[17px] h-[156px] border border-[#E8EBED] hover:border-gray-200 transition-colors ${className}`}
+    >
       <div className="flex flex-col items-center gap-2">
         <Image
           className={`w-8 h-8 rounded-full `}

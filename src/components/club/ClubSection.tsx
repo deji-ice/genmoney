@@ -3,9 +3,9 @@ import { clubPosts } from "./mockData";
 import ClubCard from "./ClubCard";
 import Header from "../common/Header";
 
-const ClubSection: React.FC = () => {
+const ClubSection = () => {
   return (
-    <section className="bg-white  p-2 mt-8 ">
+    <section className="bg-white  md:p-2 mt-8 ">
       <Header title="Club" />
 
       <div className=" flex flex-col gap-4">

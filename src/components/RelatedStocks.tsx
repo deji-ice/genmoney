@@ -59,7 +59,7 @@ const relatedStocksData: RelatedStock[] = [
 
 const RelatedStocks = () => {
   return (
-    <div className="bg-white  ">
+    <section className="bg-white  ">
       <h2 className="text-2xl font-semibold text-[#090A0B] ">Related Stocks</h2>
       <hr className="my-3.5 text-[#E9EAEB]" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-6 gap-x-8">
@@ -101,7 +101,7 @@ const RelatedStocks = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

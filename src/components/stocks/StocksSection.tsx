@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useMemo } from "react";
-import { filterStocks, StockCategory } from "../../data/stocks";
+import { Stock, StockCategory, stocks } from "../../data/stocks";
 import { Activity, TrendingDown, TrendingUp } from "lucide-react";
 import StockRow from "./StockRow";
 import Header from "../common/Header";
@@ -36,7 +36,7 @@ const tabConfig: {
 
 const StocksSection = () => {
   const [activeTab, setActiveTab] = useState<StockCategory>("gainers");
-  const data = useMemo(() => filterStocks(activeTab), [activeTab]);
+  const [stockData, setStockData] = useState<Stock[]>(stocks);
 
   return (
     <section className="bg-white w-full  font-family-open-sauce">
@@ -57,7 +57,7 @@ const StocksSection = () => {
       <div className=" overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-[#717680] font-semibold sr-only lg:not-sr-only">
+            <tr className="text-[#717680] font-semibold sr-only md:not-sr-only">
               <th className="text-left font-medium py-3 pr-4">Symbol</th>
               <th className="text-left font-medium py-3 pr-4">Name</th>
               <th className="text-left font-medium py-3 pr-4">Price</th>
@@ -71,7 +71,7 @@ const StocksSection = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((s) => (
+            {stockData.map((s) => (
               <StockRow key={s.id} stock={s} />
             ))}
           </tbody>

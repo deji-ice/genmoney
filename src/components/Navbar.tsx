@@ -8,7 +8,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full z-40 fixed top-0 px-6 lg:px-20 bg-white border-b border-b-gray-300 font-open-sauce">
+    <nav className="w-full z-40 sticky top-0 px-6 lg:px-20 bg-white border-b border-b-gray-300 font-open-sauce">
       <div className="flex h-16 items-center justify-between ">
         {/* Left: Logo */}
         <div className="flex items-center gap-10">
@@ -94,11 +94,11 @@ const Navbar = () => {
       <div
         className={`${
           open ? "block" : "hidden"
-        } lg:hidden border-t border-gray-200 bg-white px-6 py-4 space-y-4`}
+        } lg:hidden border-t border-gray-200 absolute w-full right-0 bg-white px-3 pt-4 pb-8 border-b space-y-4`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex  items-center gap-8 justify-between">
           <SearchBar />
-          <div className="flex items-center gap-4">
+          <div className="flex  items-center gap-4">
             <Image
               src={Bell}
               alt="Bell icon"
@@ -115,7 +115,6 @@ const Navbar = () => {
             />
           </div>
         </div>
-
         <div className="flex flex-col gap-2 text-sm font-medium text-[#383D41]">
           <button
             onClick={() => setOpen(false)}

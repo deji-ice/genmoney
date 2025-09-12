@@ -16,8 +16,8 @@ const companyData: CompanyData = {
 
 const CompanyProfile = () => {
   return (
-    <div className="bg-white  ">
-      <h2 className="text-2xl font-semibold text-[#090A0B] ">
+    <section className="bg-white  ">
+      <h2 className="text-lg md:text-2xl font-semibold text-[#090A0B] ">
         Company Profile
       </h2>
       <hr className="my-3.5 text-[#E9EAEB]" />
@@ -53,7 +53,7 @@ const CompanyProfile = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

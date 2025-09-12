@@ -16,10 +16,10 @@ const holdingData: HoldingData = {
   accountPercentage: 20,
 };
 
-const Holdings: React.FC = () => {
+const Holdings = () => {
   return (
     <div className="bg-white  ">
-      <h2 className="text-2xl font-semibold text-[#090A0B] ">My Holding</h2>
+      <h2 className="text-lg md:text-2xl font-semibold text-[#090A0B] ">My Holding</h2>
       <hr className="my-3.5 text-[#E9EAEB]" />
       <div className="grid grid-cols-2 gap-8 text-[#090A0B]">
         {/* Left Column */}

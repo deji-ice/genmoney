@@ -38,9 +38,15 @@ const StockRow = ({ stock }: StockRowProps) => {
     <tr className="border-t border-t-[#E8EBED] last:border-b-0 text-sm">
       <td className="py-4 pr-4 flex flex-col gap-2 md:block">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full hidden  bg-gray-100 md:flex items-center justify-center text-xs font-semibold">
-            {stock.symbol.slice(0, 4)}
+          <div className="w-[42px] h-[42px] rounded-full hidden  bg-gray-100 md:flex items-center justify-center text-xs font-semibold">
+            <Image
+              src={stock.logo}
+              alt={`${stock.name} logo`}
+              className=" rounded-full"
+              
+            />
           </div>
+
           <span className="font-semibold text-[#211B1B] md:text-[#383D41] ">
             {stock.symbol}
           </span>

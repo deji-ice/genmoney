@@ -1,19 +1,17 @@
-// Mock data for StocksSection
-// In real app this would come from an API
+import { AppleLogoSimple, HimsLogo, MetaIcon, NvidiaLogo } from "@/assets/logos";
+import { StaticImageData } from "next/image";
 
 export type Stock = {
-    id: string; // unique id
+    id: string; 
     symbol: string;
     name: string;
-    price: number; // current price
-    changePercent: number; // percentage change e.g. 0.101 => 0.10%
-    logo: string; // placeholder image path or external URL
-    volume?: number; // for "Most Traded" tab
+    price: number;
+    changePercent: number; 
+    logo: string | StaticImageData;
+    volume?: number; 
     direction?: 'up' | 'down';
 };
 
-// Helper to generate a placeholder logo using a public svg (replace later)
-const logo = (sym: string) => `/placeholder/${sym}.svg`;
 
 export const stocks: Stock[] = [
     {
@@ -22,7 +20,7 @@ export const stocks: Stock[] = [
         name: 'Apple Inc.',
         price: 157.07,
         changePercent: 0.10,
-        logo: logo('aapl'),
+        logo: AppleLogoSimple,
         volume: 12000000,
         direction: 'up'
     },
@@ -32,7 +30,7 @@ export const stocks: Stock[] = [
         name: 'Meta Inc.',
         price: 157.07,
         changePercent: 0.10,
-        logo: logo('meta'),
+        logo: MetaIcon,
         volume: 10000000,
         direction: 'up'
     },
@@ -42,7 +40,7 @@ export const stocks: Stock[] = [
         name: 'Nvidia Corp',
         price: 157.07,
         changePercent: 0.11,
-        logo: logo('nvda'),
+        logo: NvidiaLogo,
         volume: 8000000,
         direction: 'up'
     },
@@ -52,7 +50,7 @@ export const stocks: Stock[] = [
         name: 'His & Hers Health',
         price: 157.07,
         changePercent: 0.01,
-        logo: logo('hims'),
+        logo: HimsLogo,
         volume: 3000000,
         direction: 'up'
     }
@@ -60,15 +58,3 @@ export const stocks: Stock[] = [
 
 export type StockCategory = 'gainers' | 'losers' | 'most';
 
-export function filterStocks(category: StockCategory, list: Stock[] = stocks): Stock[] {
-    switch (category) {
-        case 'gainers':
-            return [...list].sort((a, b) => b.changePercent - a.changePercent);
-        case 'losers':
-            return [...list].sort((a, b) => a.changePercent - b.changePercent);
-        case 'most':
-            return [...list].sort((a, b) => (b.volume || 0) - (a.volume || 0));
-        default:
-            return list;
-    }
-}

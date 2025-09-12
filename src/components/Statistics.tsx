@@ -26,7 +26,7 @@ const statisticsData: StatisticsData = {
 
 const Statistics = () => {
   return (
-    <div className="bg-white  ">
+    <section className="bg-white  ">
       <h2 className="text-2xl font-bold text-[#090A0B] ">Statistics</h2>
       <hr className="my-3.5 text-[#E9EAEB]" />
       <div className="grid grid-cols-3 gap-4 lg:gap-8">
@@ -82,7 +82,7 @@ const Statistics = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
