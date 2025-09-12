@@ -50,8 +50,8 @@ const StocksSection= () => {
 
   return (
     <section className="bg-white w-full  font-family-open-sauce">
-      <Header title="Stocks" />
-      <div className="flex gap-4 px-6 mb-6">
+      <Header title="Stocks"  />
+      <div className="flex gap-4  mb-6">
         {tabConfig.map((t) => (
           <TabButton
             key={t.key}
@@ -64,7 +64,7 @@ const StocksSection= () => {
         ))}
       </div>
 
-      <div className="px-6 overflow-x-auto">
+      <div className=" overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="text-[#717680] font-semibold">

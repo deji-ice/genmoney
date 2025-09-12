@@ -8,7 +8,7 @@ const ClubSection: React.FC = () => {
     <section className="bg-white  p-2 mt-8 ">
       <Header title="Club" />
 
-      <div className="px-6 flex flex-col gap-4">
+      <div className=" flex flex-col gap-4">
         {clubPosts.map((post) => (
           <ClubCard key={post.id} post={post} />
         ))}

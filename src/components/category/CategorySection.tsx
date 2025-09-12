@@ -7,7 +7,7 @@ const CategorySection = () => {
   return (
     <section >
       <Header title="Categories" />
-      <div className="flex gap-4 px-6">
+      <div className="flex gap-4">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}

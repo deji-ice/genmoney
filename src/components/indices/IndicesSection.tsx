@@ -8,12 +8,10 @@ const IndicesSection = () => {
     <section className="bg-white  p-2 mt-8">
       <Header title="Indices" icon={false} />
 
-      <div className="px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-          {indices.map((index) => (
-            <IndicesCard key={index.id} index={index} />
-          ))}
-        </div>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        {indices.map((index) => (
+          <IndicesCard key={index.id} index={index} />
+        ))}
       </div>
     </section>
   );

@@ -1,17 +1,27 @@
 import { ArrowRight } from "lucide-react";
+import clsx from "clsx";
 
 type HeaderProps = {
   title: string;
   icon?: boolean;
+  className?: string;
 };
 
-const Header = ({ title, icon = true }: HeaderProps) => {
+const Header = ({ title, icon = true, className }: HeaderProps) => {
   return (
-    <header className="flex items-center font-family-open-sauce justify-between mb-6 px-6">
+    <header
+      className={clsx(
+        "flex items-center font-family-open-sauce justify-between mb-6",
+        className
+      )}
+    >
       <h2 className="text-2xl font-semibold">{title}</h2>
 
       {icon && (
-        <ArrowRight role="button" className="font-light text-[#2B2829]" />
+        <ArrowRight
+          role="button"
+          className="font-light cursor-pointer text-[#2B2829]"
+        />
       )}
     </header>
   );
