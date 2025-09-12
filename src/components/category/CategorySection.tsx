@@ -7,7 +7,7 @@ const CategorySection = () => {
   return (
     <section >
       <Header title="Categories" />
-      <div className="flex gap-4">
+      <div className="flex gap-4 overflow-scroll scrollbar-hide">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}

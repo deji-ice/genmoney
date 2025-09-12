@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className=" px-8 py-4 lg:px-20 lg:py-10 gap-8 flex flex-col lg:flex-row ">
+    <div className=" px-4 py-4 lg:px-20 lg:py-10 gap-8 flex flex-col lg:flex-row ">
       <section className="flex-3 flex flex-col">
         <StocksSection />
         <ETFsSection />

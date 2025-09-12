@@ -1,5 +1,6 @@
 import { Down, Up } from "@/assets/icons";
 import Image from "next/image";
+import clsx from "clsx";
 
 const PercentageChange: React.FC<{
   value: number;
@@ -8,9 +9,10 @@ const PercentageChange: React.FC<{
   const positive = direction === "up";
   return (
     <div
-      className={`flex items-center gap-1  ${
-        positive ? " text-[#2EB200]" : "text-[#FF6154]"
-      }`}
+      className={clsx(
+        "flex items-center gap-1",
+        positive ? "text-[#2EB200]" : "text-[#FF6154]"
+      )}
     >
       <Image
         src={positive ? Up : Down}

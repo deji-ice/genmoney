@@ -10,7 +10,7 @@ interface ClubCardProps {
 
 const ClubCard = ({ post }: ClubCardProps) => {
   return (
-    <div className="rounded-xl flex gap-3  px-[12px] py-[24px] border border-[#E8EBED] text-[#090A0B] font-family-open-sauce hover:border-gray-200 transition-colors">
+    <div className="rounded-xl flex gap-3  px-[12px]  py-[24px] border border-[#E8EBED] text-[#090A0B] font-family-open-sauce hover:border-gray-200 transition-colors">
       <Image
         src={post.user.avatar}
         alt={post.user.name}

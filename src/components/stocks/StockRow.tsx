@@ -1,49 +1,134 @@
-import { BellRing, CirclePlus } from "lucide-react";
+"use client";
+import { MoreVertical } from "lucide-react";
 import { Stock } from "../../data/stocks";
 import PercentageChange from "../common/PercentChange";
 import { AddIcon, BellRinging } from "@/assets/icons";
 import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 type StockRowProps = {
   stock: Stock;
 };
 
-const StockRow = ({ stock }: StockRowProps) => (
-  <tr className="border-t border-t-[#E8EBED] last:border-b-0 text-sm">
-    <td className="py-4 pr-4">
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xs font-semibold">
-          {stock.symbol.slice(0, 4)}
+const StockRow = ({ stock }: StockRowProps) => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const popoverRef = useRef<HTMLDivElement>(null);
+
+  // Close popover when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        popoverRef.current &&
+        !popoverRef.current.contains(event.target as Node)
+      ) {
+        setIsPopoverOpen(false);
+      }
+    };
+
+    if (isPopoverOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isPopoverOpen]);
+
+  return (
+    <tr className="border-t border-t-[#E8EBED] last:border-b-0 text-sm">
+      <td className="py-4 pr-4 flex flex-col gap-2 md:block">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full hidden  bg-gray-100 md:flex items-center justify-center text-xs font-semibold">
+            {stock.symbol.slice(0, 4)}
+          </div>
+          <span className="font-semibold text-[#211B1B] md:text-[#383D41] ">
+            {stock.symbol}
+          </span>
         </div>
-        <span className="font-semibold text-[#383D41]">{stock.symbol}</span>
-      </div>
-    </td>
-    <td className="py-4 pr-4 text-[#383D41]">{stock.name}</td>
-    <td className="py-4 pr-4  text-[#383D41]">${stock.price}</td>
-    <td className="py-4 pr-4">
-      <PercentageChange
-        value={stock.changePercent}
-        direction={stock.direction || "up"}
-      />
-    </td>
-    <td className="py-4 pr-2 text-center">
-      <Image
-        src={BellRinging}
-        alt="Bell icon"
-        className="h-5 w-5 cursor-pointer"
-        width={20}
-        height={20}
-      />
-    </td>
-    <td className="py-4 pr-2 text-center">
-      <Image
-        src={AddIcon}
-        alt="Add icon"
-        className="h-5 w-5 cursor-pointer"
-        width={20}
-        height={20}
-      />
-    </td>
-  </tr>
-);
+        <span className=" text-[#383D41] text-xs md:hidden">{stock.name}</span>
+      </td>
+      <td className="py-4 pr-4 text-[#383D41] sr-only md:not-sr-only ">
+        {stock.name}
+      </td>
+      <td className="py-4 pr-4 space-y-2 text-[#383D41] font-bold md:font-normal">
+        ${stock.price}
+        <div className="md:hidden">
+          <PercentageChange
+            value={stock.changePercent}
+            direction={stock.direction || "up"}
+          />
+        </div>
+      </td>
+      <td className="py-4 pr-4 hidden md:block ">
+        <PercentageChange
+          value={stock.changePercent}
+          direction={stock.direction || "up"}
+        />
+      </td>
+
+      {/* Desktop Actions - Hidden on smaller screens */}
+      <td className="py-4 pr-2 text-center hidden lg:table-cell">
+        <Image
+          src={BellRinging}
+          alt="Bell icon"
+          className="h-5 w-5 cursor-pointer"
+          width={20}
+          height={20}
+          role="button"
+          aria-label="Set alert"
+        />
+      </td>
+      <td className="py-4 pr-2 text-center hidden lg:table-cell">
+        <Image
+          src={AddIcon}
+          alt="Add icon"
+          aria-label="Add to watchlist"
+          role="button"
+          className="h-5 w-5 cursor-pointer"
+          width={20}
+          height={20}
+        />
+      </td>
+
+      {/* Mobile Actions - Visible on smaller screens */}
+      <td className="py-4 pr-2 text-center lg:hidden  relative">
+        <div className="relative" ref={popoverRef}>
+          <button
+            onClick={() => setIsPopoverOpen(!isPopoverOpen)}
+            className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+            aria-label="More actions"
+          >
+            <MoreVertical className="h-5 w-5 text-gray-600" />
+          </button>
+
+          {/* Popover */}
+          {isPopoverOpen && (
+            <div className="absolute right-5.5 top-5.5 z-40  bg-white border border-gray-200 rounded-[3px] shadow-lg py-2 min-w-[152px]">
+              <button className="flex items-center gap-2 w-full px-3 py-2 text-xs text-[#60707A] hover:bg-gray-50 transition-colors">
+                <Image
+                  src={AddIcon}
+                  alt="Add icon"
+                  className="h-5 w-5"
+                  width={20}
+                  height={20}
+                />
+                Add to watchlist
+              </button>
+              <button className="flex items-center gap-2 w-full px-3 py-2 text-xs text-[#60707A] hover:bg-gray-50 transition-colors">
+                <Image
+                  src={BellRinging}
+                  alt="Bell icon"
+                  className="h-5 w-5"
+                  width={20}
+                  height={20}
+                />
+                Set Alert
+              </button>
+            </div>
+          )}
+        </div>
+      </td>
+    </tr>
+  );
+};
 export default StockRow;

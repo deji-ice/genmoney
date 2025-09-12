@@ -14,7 +14,7 @@ const TabButton: React.FC<{
   <button
     onClick={onClick}
     className={clsx(
-      "flex items-center gap-2 py-2.5 px-4 rounded-full border cursor-pointer transition text-sm bg-[#F2F4F7] font-semibold",
+      "flex items-center gap-2 py-2.5 px-3 lg:px-4 rounded-full border h-[40px] lg:h-[36px] whitespace-nowrap cursor-pointer transition text-sm bg-[#F2F4F7] font-semibold",
       active
         ? "border-[#3C00FF] text-[#3C00FF]"
         : "border-transparent text-[#60707A]"
@@ -41,7 +41,7 @@ const StocksSection = () => {
   return (
     <section className="bg-white w-full  font-family-open-sauce">
       <Header title="Stocks" />
-      <div className="flex gap-4  mb-6">
+      <div className="flex gap-2 lg:gap-4  mb-6">
         {tabConfig.map((t) => (
           <TabButton
             key={t.key}
@@ -57,7 +57,7 @@ const StocksSection = () => {
       <div className=" overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-[#717680] font-semibold">
+            <tr className="text-[#717680] font-semibold sr-only lg:not-sr-only">
               <th className="text-left font-medium py-3 pr-4">Symbol</th>
               <th className="text-left font-medium py-3 pr-4">Name</th>
               <th className="text-left font-medium py-3 pr-4">Price</th>
