@@ -1,16 +1,10 @@
 "use client";
 import React, { useState, useMemo } from "react";
-import { stocks, filterStocks, StockCategory, Stock } from "../../data/stocks";
-import {
-  Activity,
-  ArrowRight,
-  BellRing,
-  CirclePlus,
-  TrendingDown,
-  TrendingUp,
-} from "lucide-react";
+import { filterStocks, StockCategory } from "../../data/stocks";
+import { Activity, TrendingDown, TrendingUp } from "lucide-react";
 import StockRow from "./StockRow";
 import Header from "../common/Header";
+import clsx from "clsx";
 
 const TabButton: React.FC<{
   active: boolean;
@@ -19,20 +13,16 @@ const TabButton: React.FC<{
 }> = ({ active, onClick, children }) => (
   <button
     onClick={onClick}
-    className={`
-      flex items-center gap-2 py-2.5 px-4  rounded-full border transition text-sm bg-[#F2F4F7] font-semibold
-      ${
-        active
-          ? "border-[#3C00FF] text-[#3C00FF] "
-          : "border-transparent text-[#60707A] "
-      }
-    `}
+    className={clsx(
+      "flex items-center gap-2 py-2.5 px-4 rounded-full border cursor-pointer transition text-sm bg-[#F2F4F7] font-semibold",
+      active
+        ? "border-[#3C00FF] text-[#3C00FF]"
+        : "border-transparent text-[#60707A]"
+    )}
   >
     {children}
   </button>
 );
-
-// Table row component
 
 const tabConfig: {
   key: StockCategory;
@@ -44,13 +34,13 @@ const tabConfig: {
   { key: "most", label: "Most Traded", icon: <Activity /> },
 ];
 
-const StocksSection= () => {
+const StocksSection = () => {
   const [activeTab, setActiveTab] = useState<StockCategory>("gainers");
   const data = useMemo(() => filterStocks(activeTab), [activeTab]);
 
   return (
     <section className="bg-white w-full  font-family-open-sauce">
-      <Header title="Stocks"  />
+      <Header title="Stocks" />
       <div className="flex gap-4  mb-6">
         {tabConfig.map((t) => (
           <TabButton

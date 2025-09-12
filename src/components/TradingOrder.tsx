@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import PercentageChange from "./common/PercentChange";
 
 interface TradingData {
   symbol: string;
@@ -28,7 +29,7 @@ const TradingOrder = () => {
   const [validUntil, setValidUntil] = useState<ValidUntil>("Day");
 
   return (
-    <div className="bg-white rounded-2xl  border  border-gray-100 max-w-md">
+    <div className="bg-white rounded-2xl  border  border-gray-100 w-full  mx-auto ">
       {/* Buy/Sell Tabs */}
       <div className="flex  px-6  py-5 border-b border-b-[#E8EBED]">
         <button
@@ -62,13 +63,11 @@ const TradingOrder = () => {
             </h3>
             <p className="text-[#60707A] text-sm">{tradingData.companyName}</p>
           </div>
-          <div className="text-right ">
+          <div className="text-right flex flex-col items-end ">
             <p className="text-sm font-bold mb-1 text-[#383D41]">
               ${tradingData.currentPrice.toLocaleString()}
             </p>
-            <p className="text-[#2EB200] text-sm font-medium">
-              ▲ {tradingData.changePercent}%
-            </p>
+            <PercentageChange value={tradingData.changePercent} />
           </div>
         </div>
       </div>
@@ -124,9 +123,11 @@ const TradingOrder = () => {
       </div>
 
       {/* Review Button */}
-      <button className="w-full bg-[#D8CCFF] mb-5 cursor-pointer ml-6 max-w-[406px] text-white py-4 px-10 rounded-full font-medium text-lg hover:bg-purple-400 transition">
-        Review {activeTab} Order
-      </button>
+      <div className="flex justify-center">
+        <button className="w-full bg-[#D8CCFF] mb-5 cursor-pointer max-w-[406px] text-white py-4 px-10 rounded-full font-medium text-lg hover:bg-purple-400 transition">
+          Review {activeTab} Order
+        </button>
+      </div>
     </div>
   );
 };

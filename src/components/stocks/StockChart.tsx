@@ -1,12 +1,10 @@
 "use client";
 import { BellRing, CirclePlus } from "lucide-react";
 import React, { useState } from "react";
-import {
-  ResponsiveContainer,
-  Tooltip,
-  AreaChart,
-  Area,
-} from "recharts";
+import { ResponsiveContainer, Tooltip, AreaChart, Area } from "recharts";
+import PercentageChange from "../common/PercentChange";
+import Image from "next/image";
+import { AddIcon, BellRinging } from "@/assets/icons";
 
 // Mock chart data for LAB stock
 const chartData = [
@@ -81,12 +79,12 @@ const StockChart = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-8  border border-gray-100">
+    <div className="bg-white rounded-2xl p-4 lg:p-8  border border-gray-100">
       {/* Header */}
       <div className="flex items-start justify-between ">
         <div className="flex flex-col w-full items-start ">
           <div className="flex flex-col gap-1 ">
-            <h1 className="text-2xl font-medium text-[#090A0B]">
+            <h1 className="text-xl lg:text-2xl font-medium text-[#090A0B]">
               {stockData.symbol}
             </h1>
 
@@ -97,25 +95,30 @@ const StockChart = () => {
               ${stockData.currentPrice.toLocaleString()}
             </div>
             <div className="flex items-center gap-2 text-sm  ">
-              <span className="flex items-center gap-1 font-medium  text-[#2EB200]">
-                <span>▲</span>
-                {stockData.changePercent}%
-              </span>
+              <PercentageChange value={stockData.changeAmount} />
               <span>+${stockData.changeAmount}</span>
               <span>Today</span>
             </div>
           </div>
         </div>
         <div className="flex gap-2 *:cursor-pointer">
-          <CirclePlus
+          <Image
+            src={AddIcon}
+            alt="add icon"
+            className="h-8 w-8 cursor-pointer p-2 border rounded-full border-[#E8EBED]"
+            width={32}
+            height={32}
             role="button"
-            aria-label="Add to watchlist"
-            className="text-[#2D3339] p-2 h-8 w-8 border rounded-full border-[#E8EBED] hover:text-gray-900"
+            aria-label="add to watchlist"
           />
-          <BellRing
+          <Image
+            src={BellRinging}
+            alt="Bell icon"
+            className="h-8 w-8 cursor-pointer p-2 border rounded-full border-[#E8EBED]"
+            width={32}
+            height={32}
             role="button"
             aria-label="Set alert"
-            className="text-[#2D3339] p-2 h-8 w-8 border rounded-full border-[#E8EBED] hover:text-gray-900"
           />
         </div>
       </div>

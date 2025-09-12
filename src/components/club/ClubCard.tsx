@@ -2,6 +2,7 @@ import React from "react";
 import { ClubPost } from "./mockData";
 import Image from "next/image";
 import { Heart, MessageCircleIcon, Share, TrendingUp } from "lucide-react";
+import { ShareIcon, VerifiedIcon } from "@/assets/icons";
 
 interface ClubCardProps {
   post: ClubPost;
@@ -23,7 +24,13 @@ const ClubCard = ({ post }: ClubCardProps) => {
           <div className="flex items-center gap-2">
             <span className="font-medium text-xs">{post.user.name}</span>
             {post.user.isVerified && (
-              <span className="text-blue-500 text-sm">✓</span>
+              <Image
+                src={VerifiedIcon}
+                alt="Verified icon"
+                className="h-3.5 w-3.5"
+                width={14}
+                height={14}
+              />
             )}
           </div>
           <div className="flex items-center gap-1 text-[10px] text-[#60707A]">
@@ -73,7 +80,14 @@ const ClubCard = ({ post }: ClubCardProps) => {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <Share className="h-3 w-3" />
+            <Image
+              src={ShareIcon}
+              alt="Share icon"
+              className="h-3.5 w-3.5"
+              width={14}
+              height={14}
+            />
+
             <span className="text-xs ">{post.engagement.shares}</span>
           </div>
         </div>

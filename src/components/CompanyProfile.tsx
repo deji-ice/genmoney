@@ -21,16 +21,16 @@ const CompanyProfile = () => {
         Company Profile
       </h2>
       <hr className="my-3.5 text-[#E9EAEB]" />
-      <div className="space-y-4">
+      <div className="space-y-5 lg:space-y-4">
         {/* Description */}
         <div>
-          <p className="text-[#383D41] leading-[24px] whitespace-break-spaces text-sm">
+          <p className="text-[#383D41] leading-[24px] whitespace-normal lg:whitespace-break-spaces text-sm">
             {companyData.description}
           </p>
         </div>
 
         {/* Company Details */}
-        <div className="grid grid-cols-3 gap-8 ">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 ">
           <div>
             <p className="text-[#383D41] text-sm mb-2">Employees</p>
             <p className="text-sm font-bold text-[#211B1B]">

@@ -1,4 +1,12 @@
+import {
+  AppleLogo,
+  AppleLogoRetina,
+  MetaLogo,
+  MetaLogoAlt,
+} from "@/assets/logos";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
+import PercentageChange from "./common/PercentChange";
 
 interface RelatedStock {
   id: string;
@@ -7,8 +15,7 @@ interface RelatedStock {
   price: number;
   changePercent: number;
   direction: "up" | "down";
-  logoIcon: string; // Simple text representation of logo
-  logoColor: string;
+  logo: string | StaticImageData; // URL or imported image
 }
 
 const relatedStocksData: RelatedStock[] = [
@@ -19,8 +26,7 @@ const relatedStocksData: RelatedStock[] = [
     price: 203.95,
     changePercent: 2.34,
     direction: "up",
-    logoIcon: "◆",
-    logoColor: "text-orange-500",
+    logo: AppleLogoRetina,
   },
   {
     id: "lcid",
@@ -29,8 +35,7 @@ const relatedStocksData: RelatedStock[] = [
     price: 203.95,
     changePercent: -1.87,
     direction: "down",
-    logoIcon: "L",
-    logoColor: "text-gray-800",
+    logo: AppleLogo,
   },
   {
     id: "nio",
@@ -39,8 +44,7 @@ const relatedStocksData: RelatedStock[] = [
     price: 697.01,
     changePercent: -3.21,
     direction: "down",
-    logoIcon: "⌒",
-    logoColor: "text-gray-800",
+    logo: MetaLogo,
   },
   {
     id: "xpev",
@@ -49,8 +53,7 @@ const relatedStocksData: RelatedStock[] = [
     price: 697.01,
     changePercent: 4.56,
     direction: "up",
-    logoIcon: "✕",
-    logoColor: "text-gray-800",
+    logo: MetaLogoAlt,
   },
 ];
 
@@ -67,28 +70,33 @@ const RelatedStocks = () => {
           >
             {/* Left side - Logo, Symbol, Company */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
-                <span className={`text-lg font-bold ${stock.logoColor}`}>
-                  {stock.logoIcon}
-                </span>
+              <div className=" rounded-full w-[42px] h-[42px] bg-[#F8F8F9] p-3 flex items-center justify-center">
+                <Image
+                  className=" "
+                  src={stock.logo}
+                  alt={stock.companyName}
+                  width={32}
+                  height={32}
+                />
               </div>
+
               <div>
-                <h3 className="font-bold text-[#211B1B] mb-1">{stock.symbol}</h3>
+                <h3 className="font-bold text-[#211B1B] mb-1">
+                  {stock.symbol}
+                </h3>
                 <p className="text-xs text-[#383D41]">{stock.companyName}</p>
               </div>
             </div>
 
             {/* Right side - Price and Change */}
             <div className="text-right">
-              <p className="font-bold text-sm text-[#211B1B] mb-1">${stock.price}</p>
-              <div
-                className={`flex items-center justify-end gap-1 text-[10px] font-medium ${
-                  stock.direction === "up" ? "text-[#2EB200]" : "text-[#FF6154]"
-                }`}
-              >
-                <span>{stock.direction === "up" ? "▲" : "▼"}</span>
-                <span>{Math.abs(stock.changePercent)}%</span>
-              </div>
+              <p className="font-bold text-sm text-[#211B1B] mb-1">
+                ${stock.price}
+              </p>
+              <PercentageChange
+                value={stock.changePercent}
+                direction={stock.direction}
+              />
             </div>
           </div>
         ))}

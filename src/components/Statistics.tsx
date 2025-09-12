@@ -29,7 +29,7 @@ const Statistics = () => {
     <div className="bg-white  ">
       <h2 className="text-2xl font-bold text-[#090A0B] ">Statistics</h2>
       <hr className="my-3.5 text-[#E9EAEB]" />
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-3 gap-4 lg:gap-8">
         {/* Column 1 */}
         <div className="space-y-4">
           <div>

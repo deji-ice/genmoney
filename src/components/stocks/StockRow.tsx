@@ -1,6 +1,8 @@
 import { BellRing, CirclePlus } from "lucide-react";
 import { Stock } from "../../data/stocks";
 import PercentageChange from "../common/PercentChange";
+import { AddIcon, BellRinging } from "@/assets/icons";
+import Image from "next/image";
 
 type StockRowProps = {
   stock: Stock;
@@ -25,17 +27,21 @@ const StockRow = ({ stock }: StockRowProps) => (
       />
     </td>
     <td className="py-4 pr-2 text-center">
-      <BellRing
-        role="button"
-        aria-label="Set alert"
-        className="text-[#2b2829] h-5 w-5 hover:text-gray-900"
+      <Image
+        src={BellRinging}
+        alt="Bell icon"
+        className="h-5 w-5 cursor-pointer"
+        width={20}
+        height={20}
       />
     </td>
     <td className="py-4 pr-2 text-center">
-      <CirclePlus
-        role="button"
-        aria-label="Add to watchlist"
-        className="text-[#2b2829] h-5 w-5 hover:text-gray-900"
+      <Image
+        src={AddIcon}
+        alt="Add icon"
+        className="h-5 w-5 cursor-pointer"
+        width={20}
+        height={20}
       />
     </td>
   </tr>

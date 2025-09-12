@@ -23,7 +23,7 @@ const NewsSection = ({
       <div
         className={clsx(" gap-4", {
           "grid grid-cols-1": columns === 1,
-          "grid grid-cols-2": columns === 2,
+          "grid grid-cols-1 md:grid-cols-2": columns === 2,
         })}
       >
         {Array.from({ length: maxItems }).map((_, index) => (
