@@ -26,11 +26,11 @@ const Holdings = () => {
         <div className="space-y-6">
           <div>
             <p className="text-[#383D41] text-xs mb-1">Market Value</p>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col md:flex-row  md:items-center gap-1 md:gap-2">
               <span className="text-sm font-semibold">
                 ${holdingData.marketValue.toLocaleString()}
               </span>
-              <span className="flex items-center text-green-600 text-sm font-medium">
+              <span className="flex items-center text-green-600 text-xs font-medium">
                 ▲ {holdingData.totalReturn}% (Total return)
               </span>
             </div>

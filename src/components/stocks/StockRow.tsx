@@ -42,10 +42,11 @@ const StockRow = ({ stock }: StockRowProps) => {
 
   const handleActionClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation(); // Prevent row click
   };
 
   return (
-    <tr 
+    <tr
       onClick={handleRowClick}
       className="border-t border-t-[#E8EBED] last:border-b-0 text-sm hover:bg-gray-50 transition-colors cursor-pointer"
     >
